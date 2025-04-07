@@ -83,21 +83,22 @@
     linebreak()
     linebreak()
 
-    date.display("[year]年[month]月[day]日")
+    text(size: 字号.三号, font: 字体.宋体, date.display("[year]年[month]月[day]日"))
   }
 
   pagebreak()
+
+  set page(header: box(
+    width: 100%,
+    stroke: (bottom: black),
+    align(center, text(font: 字体.宋体, size: 字号.五号)[成都东软学院毕业论文#v(5pt)]),
+  ))
 
   // abstract
   {
     set page(numbering: "I")
     counter(page).update(1)
 
-    set page(header: box(
-      width: 100%,
-      stroke: (bottom: black),
-      text(font: 字体.宋体, size: 字号.五号)[成都东软学院毕业论文#v(2pt)],
-    ))
     set par(leading: 1.5em, justify: true, first-line-indent: 2em)
     // chinese
     set align(center)
