@@ -121,7 +121,13 @@
 
   pagebreak()
 
-  outline(title: [目录])
+  {
+    set text(font: 字体.宋体, size: 字号.小四)
+    outline(title: {
+      set align(center)
+      box(width: 100%, text()[目录])
+    })
+  }
 
   pagebreak()
 
