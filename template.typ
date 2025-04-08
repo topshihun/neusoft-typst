@@ -121,6 +121,7 @@
 
   pagebreak()
 
+  // content
   {
     set text(font: 字体.宋体, size: 字号.小四)
     outline(title: {
@@ -131,10 +132,17 @@
 
   pagebreak()
 
+  // body
   {
     counter(page).update(1)
     set heading(numbering: "1.")
+    show heading.where(level: 1): it => {
+      set align(center)
+      text(size: 字号.小二, font: 字体.黑体)[第#counter(heading).display("1")章#it.body]
+    }
     set page(numbering: "1")
+    set text(size: 字号.小四, font: 字体.宋体)
+    set par(leading: 1.5em, justify: true, first-line-indent: (amount: 2em, all: true))
 
     set align(left)
     doc
