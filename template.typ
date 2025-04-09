@@ -134,15 +134,24 @@
 
   // body
   {
-    counter(page).update(1)
-    set heading(numbering: "1.")
-    show heading.where(level: 1): it => {
-      set align(center)
-      text(size: 字号.小二, font: 字体.黑体)[第#counter(heading).display("1")章#it.body]
-    }
     set page(numbering: "1")
     set text(size: 字号.小四, font: 字体.宋体)
     set par(leading: 1.5em, justify: true, first-line-indent: (amount: 2em, all: true))
+    counter(page).update(1)
+    set heading(numbering: (..nums) => {
+      let arr = nums.pos()
+      let str_arr = arr.map(int => str(int))
+      let len = arr.len()
+      if(len == 1) { "第" + str_arr.first() + "章" }
+      else { str_arr.join(".") }
+    })
+    show heading: it => {
+      v(1em)
+      set text(font: 字体.黑体)
+      it
+      v(1em)
+    }
+    show heading.where(level:  1): set align(center)
 
     set align(left)
     doc
