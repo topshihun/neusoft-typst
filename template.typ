@@ -31,6 +31,7 @@
   date: datetime,
   abstract_ch: str,
   abstract_en: str,
+  thanks: str,
   doc,
 ) = {
   set page("a4")
@@ -155,5 +156,23 @@
 
     set align(left)
     doc
+  }
+
+  // thanks
+  {
+    set page(numbering: "1")
+    set text(size: 字号.小四, font: 字体.宋体)
+    set par(leading: 1.5em, justify: true, first-line-indent: (amount: 2em, all: true))
+    show heading.where(level:  1): set align(center)
+    show heading: it => {
+      v(1em)
+      set text(font: 字体.黑体)
+      it
+      v(1em)
+    }
+
+    set align(left)
+    heading()[致谢]
+    thanks
   }
 }

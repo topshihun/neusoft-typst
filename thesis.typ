@@ -12,6 +12,14 @@ In this paper, the application of big data in human resource management is studi
 At the same time, with the Internet set off a third wave of revolution, the world has gradually entered the era of massive data explosion, the era of big data has to avoid the arrival of the inevitable, human resource management is facing new challenges and opportunities. At present, big data applications in China is still in initial stage, was the most mentioned only in the field of marketing, how big data related to the principle and concept, applied to the field of human resources, improve the efficiency of human resources management in enterprises is a topic worth exploring.
 ]
 
+#let thanks = [
+#text(red)[说明：在致谢中，主要表达对导师和其他相关人员的感谢之意以及结合整体的大学学习，对整个毕业论文进行总体性、概括性总结，表达出论文的思路、学习收获、对未来进一步学习的设想。对此，仍要实事求是，过分的颂扬反而会带来消极影响。]
+
+在整个毕业论文的各个阶段我都得到了xxx老师、xxx老师和xxx老师的悉心指导和耐心帮助。
+
+（以下略）
+]
+
 #show: doc => conf(
   title: "题目：大数据时代互联网企业人力资源管理研究",
   subtitle: "——以XXXX公司为例",
@@ -24,6 +32,7 @@ At the same time, with the Internet set off a third wave of revolution, the worl
   date: datetime.today(),
   abstract_ch: ab_cn,
   abstract_en: ab_en,
+  thanks: thanks,
   doc,
 )
 
@@ -47,5 +56,27 @@ At the same time, with the Internet set off a third wave of revolution, the worl
 
 人力资源管理源于传统的人事管理。从时间维度来说，人事管理始于18世纪末开始的工业革命，二十世纪二十年代以后，人力资源管理概念逐步被提出，取代了传统的认识管理概念。
 
+== 国内外现状
+
+Gartner研究指出，全球计算机技术行业在2012年的投入是960亿美元，2013年超过了2,320亿美元。大数据将成为推动计算机技术产业的发展引擎，并形成新的数据产业。世界各国都普遍重视这一产业的发展，并把大数据技术的研究和发展上升到了国家战略层面。
+
+（以下略） 
+
 = 大数据时代大型互联网企业人力资源管理案例研究
 
+== 谷歌公司人力资源管理案例分析及研究
+=== 谷歌公司基本情况介绍
+
+（以下略）
+
+== 谷歌公司人力资源大数据实践
+
+（以下略）
+
+== 腾讯公司人力资源管理案例分析及研究
+
+（以下略）
+
+== 案例总结
+
+（以下略）
