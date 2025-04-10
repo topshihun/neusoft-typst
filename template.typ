@@ -31,6 +31,7 @@
   date: datetime,
   abstract_ch: str,
   abstract_en: str,
+  reference: "",
   thanks: str,
   doc,
 ) = {
@@ -103,7 +104,7 @@
     set par(leading: 1.5em, justify: true, first-line-indent: 2em)
     // chinese
     set align(center)
-    text(size: 字号.小二, font: 字体.黑体)[摘#h(2em)要]
+    text(size: 字号.小二, font: 字体.黑体)[摘#h(1em)要]
 
     set align(left)
     set text(size: 字号.小四, font: 字体.宋体)
@@ -127,7 +128,7 @@
     set text(font: 字体.宋体, size: 字号.小四)
     outline(title: {
       set align(center)
-      box(width: 100%, text()[目录])
+      box(width: 100%, text()[目#h(1em)录])
     })
   }
 
@@ -158,6 +159,28 @@
     doc
   }
 
+  // reference documentation
+  if reference != "" {
+
+    pagebreak()
+
+    set page(numbering: "1")
+    set text(size: 字号.小四, font: 字体.宋体)
+    set par(leading: 1.5em, justify: true, first-line-indent: (amount: 2em, all: true))
+    show heading.where(level:  1): set align(center)
+    show heading: it => {
+      v(1em)
+      set text(font: 字体.黑体)
+      it
+      v(1em)
+    }
+
+    heading()[引#h(1em)用]
+    bibliography(title: none, style: "gb-7714-2005-numeric", reference)
+  }
+
+  pagebreak()
+
   // thanks
   {
     set page(numbering: "1")
@@ -171,8 +194,8 @@
       v(1em)
     }
 
+    heading()[致#h(1em)谢]
     set align(left)
-    heading()[致谢]
     thanks
   }
 }
