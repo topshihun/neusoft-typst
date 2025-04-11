@@ -20,6 +20,10 @@ At the same time, with the Internet set off a third wave of revolution, the worl
 （以下略）
 ]
 
+#let appendix = [
+#text(red)[附录中的内容要与正文内容分开，用阿拉伯数字编号，须在数码前加上附录序码。如：图A.1，式（B.2），表C.3等。]
+]
+
 #show: doc => conf(
   title: "题目：大数据时代互联网企业人力资源管理研究",
   subtitle: "——以XXXX公司为例",
@@ -34,6 +38,7 @@ At the same time, with the Internet set off a third wave of revolution, the worl
   abstract_en: ab_en,
   reference: "works.yml",
   thanks: thanks,
+  appendixs: (appendix, appendix),
   doc,
 )
 
@@ -66,6 +71,7 @@ Gartner研究指出，全球计算机技术行业在2012年的投入是960亿美
 = 大数据时代大型互联网企业人力资源管理案例研究
 
 == 谷歌公司人力资源管理案例分析及研究
+
 === 谷歌公司基本情况介绍
 
 （以下略）
@@ -81,3 +87,23 @@ Gartner研究指出，全球计算机技术行业在2012年的投入是960亿美
 == 案例总结
 
 （以下略）
+
+= 结论与展望
+
+== 政策与建议
+
+#figure(
+  caption: [大数据下人力资源管理的挑战与应对策略],
+  table(
+    columns: 3,
+    [序号], [挑战], [应对策略],
+    [1], [xxxxxxx], [xxxxxxxxx],
+    [2], [], [],
+    [3], [], [],
+    [4], [], []
+  )
+)
+
+（以下略）
+
+== 不足与展望

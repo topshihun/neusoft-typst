@@ -33,6 +33,7 @@
   abstract_en: str,
   reference: "",
   thanks: str,
+  appendixs: array,
   doc,
 ) = {
   set page("a4")
@@ -197,5 +198,38 @@
     heading()[致#h(1em)谢]
     set align(left)
     thanks
+  }
+
+  pagebreak()
+
+  // appendixs
+  {
+    set page(numbering: "1")
+    set text(size: 字号.小四, font: 字体.宋体)
+    set par(leading: 1.5em, justify: true, first-line-indent: (amount: 2em, all: true))
+    show heading.where(level:  1): set align(center)
+    show heading: it => {
+      v(1em)
+      set text(font: 字体.黑体)
+      it
+      v(1em)
+    }
+
+    if appendixs.len() == 1 {
+      set heading(numbering: "A")
+    }
+    else {
+      set heading(numbering: "A")
+    }
+
+    heading()[附#h(1em)录]
+    set align(left)
+    appendixs.first()
+  }
+
+  pagebreak()
+
+  // letter of commitment
+  {
   }
 }
