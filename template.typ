@@ -33,7 +33,7 @@
   abstract_en: str,
   reference: "",
   thanks: str,
-  appendixs: array,
+  appendixes: array,
   doc,
 ) = {
   set page("a4")
@@ -215,16 +215,30 @@
       v(1em)
     }
 
-    if appendixs.len() == 1 {
-      set heading(numbering: "A")
-    }
-    else {
-      set heading(numbering: "A")
+    show heading: it => if appendixes.len() == 1 {
+      [#it.body]
+    } else {
+      set heading(numbering: none)
+      let num = counter(heading).display("A")
+
+      [#it.body #num]
     }
 
-    heading()[附#h(1em)录]
-    set align(left)
-    appendixs.first()
+    counter(heading).update(1)
+
+    let index = 0
+
+    while index < appendixes.len() {
+      heading(level: 1)[附#h(1em)录]
+      set align(left)
+      appendixes.at(index)
+      counter(heading).step()
+      index += 1
+      if(index != appendixes.len()) {
+        pagebreak()
+      }
+    }
+    
   }
 
   pagebreak()
