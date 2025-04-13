@@ -204,7 +204,10 @@
   pagebreak()
 
   // appendixs
-  context ({
+  {
+    let appendix_numbering = counter("appendix_numbering")
+    context appendix_numbering.step()
+
     set page(numbering: "1")
     set text(size: 字号.小四, font: 字体.宋体)
     set par(leading: 1.5em, justify: true, first-line-indent: (amount: 2em, all: true))
@@ -216,31 +219,21 @@
       v(1em)
     }
 
-    show heading: it => if appendixes.len() == 1 {
-      [#it.body]
-    } else {
-      set heading(numbering: none)
-      let num = counter(heading).display("A")
-
-      [#it.body #num]
-    }
-
-    counter(heading).update(1)
-
     let index = 0
 
     while index < appendixes.len() {
-      heading(level: 1)[附#h(1em)录]
+      let title = [附#h(1em)录] + [#context appendix_numbering.display("A")]
+      heading(level: 1, title)
+      context appendix_numbering.step()
       set align(left)
       appendixes.at(index)
-      counter(heading).step()
       index += 1
       if(index != appendixes.len()) {
         pagebreak()
       }
     }
     
-  })
+  }
 
   pagebreak()
 
