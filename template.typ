@@ -16,9 +16,6 @@
   楷体: ("Times New Roman", "KaiTi"),
   代码: ("New Computer Modern Mono", "Times New Roman", "SimSun"),
 )
-#let 间距(mutiple: int) = (
-  (context text.size * mutiple).size()
-)
 
 #let conf(
   title: str,
