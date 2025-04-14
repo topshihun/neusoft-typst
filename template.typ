@@ -9,6 +9,7 @@
   小四: 12pt,
   五号: 10.5pt,
 )
+
 #let 字体 = (
   仿宋: ("Times New Roman", "FangSong"),
   宋体: ("Times New Roman", "SimSun"),
@@ -35,6 +36,8 @@
   doc,
 ) = {
   set page("a4")
+
+  let appendix_numbering = counter("appendix_numbering")
 
   // 
   {
@@ -200,15 +203,17 @@
 
   pagebreak()
 
-  // appendixs
+  // appendixes
   {
-    let appendix_numbering = counter("appendix_numbering")
-    context appendix_numbering.step()
-
     set page(numbering: "1")
     set text(size: 字号.小四, font: 字体.宋体)
     set par(leading: 1.5em, justify: true, first-line-indent: (amount: 2em, all: true))
     show heading.where(level:  1): set align(center)
+    context appendix_numbering.update(0)
+    set heading(numbering: (..) => {
+      context appendix_numbering.step()
+      context appendix_numbering.display("附录A")
+    })
     show heading: it => {
       v(1em)
       set text(font: 字体.黑体)
@@ -216,20 +221,14 @@
       v(1em)
     }
 
-    let index = 0
-
-    while index < appendixes.len() {
-      let title = [附#h(1em)录] + [#context appendix_numbering.display("A")]
-      heading(level: 1, title)
-      context appendix_numbering.step()
-      set align(left)
-      appendixes.at(index)
-      index += 1
-      if(index != appendixes.len()) {
-        pagebreak()
-      }
+    let len = appendixes.len()
+    let i = 0
+    while i < len {
+      heading(level: 1, "")
+      appendixes.at(i)
+      i += 1
+      if(i != len) { pagebreak() }
     }
-    
   }
 
   pagebreak()

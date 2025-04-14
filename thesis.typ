@@ -38,7 +38,7 @@ At the same time, with the Internet set off a third wave of revolution, the worl
   abstract_en: ab_en,
   reference: "works.yml",
   thanks: thanks,
-  appendixes: (appendix, appendix, appendix),
+  appendixes: (appendix, appendix),
   doc,
 )
 
